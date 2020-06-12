@@ -14,5 +14,15 @@ namespace MatchApp.API.Helpers
             response.Headers.Add("Access-Control-Expose-Headers", "Application-Error");
             response.Headers.Add("Access-Control-Allow-Origin", "*");
         }
+
+        public static int CalcAge(this DateTime dob)
+        {
+            int age = DateTime.Now.Year - dob.Year;
+
+            if (dob.AddYears(age) > DateTime.Today)
+                age--;
+
+            return age;
+        }
     }
 }
