@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -36,4 +37,6 @@ export class NavComponent implements OnInit {
     this.alertify.message("Logged out!");
     this.router.navigate(['/home']);
   }
+
+  
 }
