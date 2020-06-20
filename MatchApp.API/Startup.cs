@@ -49,6 +49,9 @@ namespace MatchApp.API
 
             services.AddCors();
 
+            //map cloudsettings in appsettings file to the cloudinarysettings class
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<Seed>();
 

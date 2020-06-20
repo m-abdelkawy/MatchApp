@@ -36,6 +36,12 @@ namespace MatchApp.API.Data
             return user;
         }
 
+        public async Task<Photo> GetPhoto(int id)
+        {
+            Photo photo = await _ctx.Photos.FirstOrDefaultAsync(p => p.Id == id);
+            return photo;
+        }
+
         public async Task<IEnumerable<User>> GetUsers()
         {
             var users = await _ctx.Users.Include(u => u.Photos).ToListAsync();
@@ -46,6 +52,11 @@ namespace MatchApp.API.Data
         {
             //savechanges() returns number of changes in database
             return await _ctx.SaveChangesAsync() >0;
+        }
+
+        public async Task<Photo> GetMainPhotoForUser(int userId)
+        {
+            return await _ctx.Photos.Where(p => p.UserId == userId).FirstOrDefaultAsync(p => p.IsMain);
         }
     }
 }

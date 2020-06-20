@@ -1,4 +1,5 @@
-﻿using MatchApp.API.Data;
+﻿using AutoMapper;
+using MatchApp.API.Data;
 using MatchApp.API.DTOs;
 using MatchApp.API.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +19,13 @@ namespace MatchApp.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
+        private readonly IMapper _mapper;
         private readonly IConfiguration _config;
 
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        public AuthController(IAuthRepository repo, IMapper mapper, IConfiguration config)
         {
             _repo = repo;
+            _mapper = mapper;
             _config = config;
         }
 
@@ -78,9 +81,12 @@ namespace MatchApp.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
+            UserForListDto user = _mapper.Map<UserForListDto>(userFromRepo);
+
             return Ok(new
             {
-                token = tokenHandler.WriteToken(token)
+                token = tokenHandler.WriteToken(token),
+                user
             });
 
         }

@@ -12,13 +12,16 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/messages']">Messages</a>
       </li>
-      
+
       <!-- <li *ngIf="loggedin()" (click)="logout()" class="nav-item">
         <a class="nav-link" href="#" >Logout</a>
       </li> -->
     </ul>
 
     <div *ngIf="loggedin()" class="dropdown" dropdown>
+      <span class="mr-1">
+        <img src="{{this.photoUrl}}" alt="">
+      </span>
       <a class="dropdown-toggle text-primary" dropdownToggle>
         Welcome {{authService.decodedToken?.unique_name | titlecase}}
       </a>
