@@ -35,6 +35,7 @@ namespace MatchApp.API.Helpers
             CreateMap<Photo, PhotosForDetailedDto>();
 
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<UserForRegisterDto, User>();
 
             CreateMap<Photo, PhotoForReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();

@@ -2,7 +2,7 @@
   <div class="row"><h1>{{user.knownAs}}'s profile</h1></div>
   <div class="row">
     <div class="col-sm-4">
-      <img class="card-img-top img-thumbnail" src="{{ user.photoUrl }}" alt="{{ user.nownAs }}">
+      <img class="card-img-top img-thumbnail" src="{{ user.photoUrl || '../../../assets/user.png' }}" alt="{{ user.nownAs }}">
       <div class="card-body">
         <div>
           <strong>Location: </strong>
