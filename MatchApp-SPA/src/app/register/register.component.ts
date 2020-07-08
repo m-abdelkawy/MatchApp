@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   user: User;
   registerForm: FormGroup;
-  bsConfig: Partial<BsDatepickerConfig>;
+  bsConfig: Partial<BsDatepickerConfig>; //partial to make all properties optional
 
   constructor(private authService: AuthService,
     private alertify: AlertifyService,
