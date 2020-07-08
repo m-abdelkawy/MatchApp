@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MatchApp.API.Data;
 using MatchApp.API.DTOs;
+using MatchApp.API.Helpers;
 using MatchApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MatchApp.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

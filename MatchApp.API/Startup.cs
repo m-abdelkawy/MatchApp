@@ -72,8 +72,8 @@ namespace MatchApp.API
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
-
                 });
+            services.AddScoped<LogUserActivity>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
